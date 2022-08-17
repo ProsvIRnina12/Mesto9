@@ -1,0 +1,27 @@
+.profile__button {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  transition: opacity 0.3s ease-in-out;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  align-self: center;
+  background: #000 url('../../../images/profile/edit.svg') center no-repeat;
+  font-size: 0;
+  cursor: pointer;
+  margin: 0px 0px -24px 0px;
+}
+
+.profile__button:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 540px) {
+  .profile__button {
+    margin: 10px -10px 10px 16px;
+    width: 18px;
+    height: 18px;
+  }
+}
