@@ -1,0 +1,26 @@
+.form__save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-top: 48px;
+  background-color: #000;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: .5s;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+.form__save:hover {
+  transition: .5s;
+  background-color: rgba(0,0,0, 0.8);
+}
+
+@media screen and (max-width: 767px) {
+  .form__save {
+    margin-top: 45px;
+    height: 46px;
+  }
+}

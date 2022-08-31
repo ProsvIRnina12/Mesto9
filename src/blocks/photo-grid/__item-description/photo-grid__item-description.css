@@ -1,0 +1,6 @@
+.photo-grid__item-description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 18px;
+}
