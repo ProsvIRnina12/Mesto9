@@ -1,1 +1,97 @@
-<!doctype html><html lang="ru"><head><meta name="author" content="Просвирнина Юлия"/><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Место - страничка с карточками</title><script defer="defer" src="main.js"></script><link href="main.css" rel="stylesheet"></head><body class="page"><header class="header"><div class="header__logo"></div></header><main class="content"><section class="profile"><div class="profile__avatar-container"><img class="profile__avatar" src="URL" alt="Аватар"/></div><div class="profile__profile-info"><div class="profile__author-container"><h1 class="profile__author"></h1><button class="profile__edit-btn" aria-label="Редактирование профиля" type="button"></button></div><p class="profile__author-job"></p></div><button class="profile__add-card-btn" aria-label="Добавление карточки" type="button"></button></section><section class="elements" aria-label="Карточки с изображениями"><template id="card"><article class="element"><img class="element__image" src="default" alt=""/> <button class="element__delete" aria-label="Удалить картинку" type="button"></button><h2 class="element__title"></h2><button class="element__like" aria-label="Мне нравится" type="button"></button> <span class="element__like-amount"></span></article></template></section></main><footer class="footer"><p class="footer__copyright">© 2022 Амелин Андрей</p></footer><div class="popup popup_for_edit-author"><div class="popup__container"><button class="popup__close-btn" aria-label="Закрытие формы" type="button"></button><form class="form form_for_edit-author" novalidate><h2 class="form__title">Редактировать профиль</h2><input name="name" class="form__input form__input_info_name-author" id="name-author-input" placeholder="Имя автора" minlength="2" maxlength="40" required/> <span class="form__input-error name-author-input-error"></span> <input name="about" class="form__input form__input_info_name-author-job" id="name-author-job-input" placeholder="Профессия автора" minlength="2" maxlength="200" required/> <span class="form__input-error name-author-job-input-error"></span> <button class="form__submit form__submit_inactive" type="submit">Сохранить</button></form></div></div><div class="popup popup_for_add-card"><div class="popup__container"><button class="popup__close-btn" aria-label="Закрытие формы" type="button"></button><form class="form form_for_add-card" novalidate><h2 class="form__title">Новое место</h2><input name="name" class="form__input form__input_info_name-card" id="name-card-input" placeholder="Название" minlength="2" maxlength="30" required/> <span class="form__input-error name-card-input-error"></span> <input name="link" class="form__input form__input_info_link-img" id="link-img-input" placeholder="Ссылка на картинку" type="url" required/> <span class="form__input-error link-img-input-error"></span> <button class="form__submit form__submit_inactive" type="submit">Создать</button></form></div></div><div class="popup popup_for_scale-image"><div class="popup__container"><button class="popup__close-btn" aria-label="Закрытие формы" type="button"></button><figure class="popup__image-container"><img class="popup__image" src="URL" alt=""/><figcaption class="popup__image-title"></figcaption></figure></div></div><div class="popup popup_for_remove-card"><div class="popup__container"><button class="popup__close-btn" aria-label="Закрытие формы" type="button"></button><form class="form" novalidate><h2 class="form__title">Вы уверены?</h2><button class="form__submit" type="submit">Да</button></form></div></div><div class="popup popup_for_edit-avatar"><div class="popup__container"><button class="popup__close-btn" aria-label="Закрытие формы" type="button"></button><form class="form form_for_edit-avatar" novalidate><h2 class="form__title">Обновить ватар</h2><input name="link" class="form__input" placeholder="Ссылка на аватар" id="link-avatar-input" type="url" required/> <span class="form__input-error link-avatar-input-error"></span> <button class="form__submit" type="submit">Сохранить</button></form></div></div></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mesto</title>
+  <meta name="description" content="Сервис Mesto">
+</head>
+
+<body class="page">
+  <header class="header">
+    <img src="<%=require('./images/header__logo.svg')%>" alt="Место" class="header__logo">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__avatar-container"><img class="profile__avatar" src="#" alt="Аватар" /></div>
+      <div class="profile__info">
+        <h1 class="profile__name"></h1>
+        <p class="profile__description"></p>
+        <button class="profile__button" type="button" aria-label="Редактировать"></button>
+      </div>
+      <button class="profile__add" type="button">Добавить фото</button>
+    </section>
+    <section class="elements" aria-label="Карточки с изображениями">
+      <template id="card">
+        <article class="element">
+          <img class="element__image" src="default" alt="">
+          <button class="element__delete" aria-label="Удалить" type="button"></button>
+          <h2 class="element__title"></h2>
+          <button class="element__like" aria-label="Лайк" type="button"></button>
+          <span class="element__like-amount"></span>
+        </article>
+      </template>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2022. Просвирнина Юлия</p>
+  </footer>
+
+  <div class="popup popup_for_edit-author">
+    <div class="popup__container">
+      <button class="popup__close-button" aria-label="Закрыть" type="button"></button>
+      <form class="form form_for_edit-author" novalidate>
+        <h2 class="form__title">Редактировать профиль</h2>
+        <input name="name" class="form__input form__input_info_name-author" id="name-author-input" placeholder="Имя" type="text" minlength="2" maxlength="40" required="">
+        <span class="form__input-error name-author-input-error"></span>
+        <input name="about" class="form__input form__input_info_name-author-job" id="name-author-job-input" placeholder="Работа" type="text" minlength="2" maxlength="200" required="">
+        <span class="form__input-error name-author-job-input-error"></span>
+        <button class="form__save form__save_inactive" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_for_add-card">
+    <div class="popup__container">
+      <button class="popup__close-button" aria-label="Закрыть" type="button"></button>
+      <form class="form form_for_add-card" novalidate>
+        <h2 class="form__title">Новое место</h2>
+        <input name="name" class="form__input form__input_info_name-card" id="name-card-input" placeholder="Название" type="text" minlength="2" maxlength="30" required />
+        <span class="form__input-error name-card-input-error"></span>
+        <input name="link" class="form__input form__input_info_link-img" id="link-img-input" placeholder="Ссылка на картинку" type="url" required />
+        <span class="form__input-error link-img-input-error"></span>
+        <button class="form__save form__save_inactive" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_for_scale-image">
+    <div class="popup__container">
+      <button class="popup__close-button" aria-label="Закрыть" type="button"></button>
+      <figure class="popup__image-container">
+        <img class="popup__image" src="URL" alt="">
+        <figcaption class="popup__image-title"></figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="popup popup_for_remove-card">
+    <div class="popup__container">
+      <button class="popup__close-button" aria-label="Закрыть" type="button"></button>
+      <form class="form" novalidate>
+        <h2 class="form__title">Вы уверены?</h2>
+        <button class="form__save" type="submit">Да</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_for_edit-avatar">
+    <div class="popup__container">
+      <button class="popup__close-button" aria-label="Закрыть" type="button"></button>
+      <form class="form form_for_edit-avatar" novalidate>
+        <h2 class="form__title">Обновить ватар</h2>
+        <input name="link" class="form__input" placeholder="Ссылка" id="link-avatar-input" type="url" required />
+        <span class="form__input-error link-avatar-input-error"></span>
+        <button class="form__save" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
